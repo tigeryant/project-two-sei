@@ -55,7 +55,7 @@ function ConvertCard() {
                   <select
                     name="target"
                     onChange={handleChange}>
-                      {/* {map coin pairs} */}
+                    {/* {map coin pairs} */}
                     <option>Bitcoin</option>
                     <option>Ethereum</option>
                     <option>Binance Coin</option>

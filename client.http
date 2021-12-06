@@ -23,3 +23,7 @@ GET https://api.coinbase.com/v2/prices/DOGE-USD/spot
 ###
 # get all known pairs
 get https://api.exchange.coinbase.com/products
+
+###
+#
+https://api.exchange.coinbase.com/currencies
