@@ -1,6 +1,7 @@
 
-// Replace with: https://api.exchange.coinbase.com/currencies
+// TODO: Replace with: https://api.exchange.coinbase.com/currencies
 export const coinTickers = [
+  // copied from CB currency response:
   {
     id: 'BTC',
     name: 'Bitcoin',
@@ -57,7 +58,7 @@ export const coinTickers = [
       max_withdrawal_amount: 7450,
     },
   },
-
+  // placeholders;
   { id: 'bnb', name: 'Binance Coin' },
   { id: 'sol', name: 'Solana' },
   { id: 'ada', name: 'Cardano' },
