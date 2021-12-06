@@ -1,4 +1,7 @@
+import axios from 'axios'
+
 # GET https://api.coinbase.com/v2/prices/spot?currency=USD
+
 ###
 # GET https://api.coinbase.com/v2/prices/spot?currency=ETH
 
@@ -14,4 +17,4 @@
 # curl https://api.coinbase.com/v2/prices/BTC-USD/spot
 
 ###
-curl https://api.coinbase.com/v2/prices/BTC-ETH/spot
+GET https://api.coinbase.com/v2/prices/BTC-USD/spot

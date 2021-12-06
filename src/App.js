@@ -1,15 +1,25 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import ConvertCard from './ConvertCard'
+import Convert from './Convert'
+import Nav from './common/Nav'
+import Home from './common/Home'
 
 function App() {
 
 
   return (
-    <>
-      <h1>Convert between crypto trading pairs</h1>
-      <ConvertCard />
-    </>
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/convert">
+          <Convert />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   )
 }
 
