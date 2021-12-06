@@ -17,4 +17,9 @@ import axios from 'axios'
 # curl https://api.coinbase.com/v2/prices/BTC-USD/spot
 
 ###
-GET https://api.coinbase.com/v2/prices/BTC-USD/spot
+GET https://api.coinbase.com/v2/prices/DOGE-USD/spot
+
+
+###
+# get all known pairs
+get https://api.exchange.coinbase.com/products
