@@ -1,6 +1,6 @@
 import React from 'react'
-import OptionListByName from './helpers/OptionListByName'
-import { getCurrencyData } from './lib/api'
+import OptionListByName from './helperComponents/OptionListByName'
+import { getExchangeRate } from './lib/utils'
 import { coinTickers } from './lib/constants'
 
 function ConvertCard() {
@@ -13,8 +13,11 @@ function ConvertCard() {
     original: coinTickers[0].id,
     target: coinTickers[0].id,
   })
-
-
+  const [finalExchangeRate, setFinalExchangeRate] = React.useState({
+    original: null,
+    target: null,
+    exchangeRate: null,
+  })
 
   const handleChange = (e) => {
     setCurrencyPair({
@@ -22,15 +25,17 @@ function ConvertCard() {
     })
     // console.log(e.target.name)
     // console.log(e.target)
+    console.log(e.target.value)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    await getCurrencyData()
+    setFinalExchangeRate(
+      await getExchangeRate(currencyPair)
+    )
   }
 
-  // console.log(JSON.stringify(currencyPair, null, 2))
+  console.log(JSON.stringify(finalExchangeRate, null, 2))
   return (
     <section className="section">
       <div className="columns is-centered">
@@ -65,11 +70,17 @@ function ConvertCard() {
                 </div>
               </div>
             </div>
-            <div className="control">
-              <button className="button is-primary">Convert</button>
+            <div>
+              {
+                finalExchangeRate.original && (
+                  <p>  {'entered value'} {finalExchangeRate.original} = {'entered value' + '*' + 'exchangeRate'} {finalExchangeRate.target}</p>
+                )
+              }
+              <div className="control">
+                <button className="button is-primary">Convert</button>
+              </div>
             </div>
           </form>
-          <p>1 Bitcoin = 10 Ethereum</p>
         </div>
       </div>
     </section>
