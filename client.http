@@ -25,5 +25,5 @@ GET https://api.coinbase.com/v2/prices/DOGE-USD/spot
 get https://api.exchange.coinbase.com/products
 
 ###
-#
+# get currency info - coin names and tickers
 https://api.exchange.coinbase.com/currencies
