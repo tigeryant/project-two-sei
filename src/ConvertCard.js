@@ -1,5 +1,7 @@
 import React from 'react'
+import OptionListByName from './helpers/OptionListByName'
 import { getCurrencyData } from './lib/api'
+import { coinTickers } from './lib/constants'
 
 function ConvertCard() {
   // put state of 'currency' options here
@@ -46,7 +48,7 @@ function ConvertCard() {
                   <select
                     name="original"
                     onChange={handleChange}>
-                    {/* {map coin pairs} */}
+                    <OptionListByName array={coinTickers} />
                   </select>
                 </div>
               </div>
@@ -55,17 +57,7 @@ function ConvertCard() {
                   <select
                     name="target"
                     onChange={handleChange}>
-                      {/* {map coin pairs} */}
-                    <option>Bitcoin</option>
-                    <option>Ethereum</option>
-                    <option>Binance Coin</option>
-                    <option>Solana</option>
-                    <option>Cardano</option>
-                    <option>XRP</option>
-                    <option>Polkadot</option>
-                    <option>Terra</option>
-                    <option>Dogecoin</option>
-                    <option>Avalanche</option>
+                    <OptionListByName array={coinTickers} />
                   </select>
                 </div>
               </div>
