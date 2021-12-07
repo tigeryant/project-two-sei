@@ -20,7 +20,7 @@ function TimeSeries({ inputData }) {
         <div className="column is-three-quarters has-background-light">
           {chartData.length && (
             <>
-              <h3 className="has-text-centered">{inputData.original}/{inputData.target}</h3>
+              <h3 className="has-text-centered">{inputData.original} / {inputData.target}</h3>
               <figure className="is-flex is-justify-content-center">
                 <XYPlot
                   margin={{ bottom: 75 }}
