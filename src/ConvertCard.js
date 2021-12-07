@@ -9,16 +9,19 @@ function ConvertCard() {
   // handle change (of select)
   // handle submit
 
-  // const [currencyPair, setCurrencyPair] = React.useState({
-  //   original: null,
-  //   target: null,
-  // })
+  const [currencyPair, setCurrencyPair] = React.useState({
+    original: coinTickers[0].id,
+    target: coinTickers[0].id,
+  })
+
+
 
   const handleChange = (e) => {
-    // setCurrencyPair({
-    //   // 
-    // })
-    console.log(e.target.name)
+    setCurrencyPair({
+      ...currencyPair, [e.target.name]: e.target.value,
+    })
+    // console.log(e.target.name)
+    // console.log(e.target)
   }
 
   const handleSubmit = async (e) => {
@@ -27,7 +30,7 @@ function ConvertCard() {
     await getCurrencyData()
   }
 
-
+  // console.log(JSON.stringify(currencyPair, null, 2))
   return (
     <section className="section">
       <div className="columns is-centered">
