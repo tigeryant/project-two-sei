@@ -3,6 +3,9 @@ import OptionListByName from './helperComponents/OptionListByName'
 import { getExchangeRate } from './lib/utils'
 import { coinTickers } from './lib/constants'
 
+// image credit: https://www.svgrepo.com/svg/215706/arrows-switch
+import switchIcon from './assets/arrows-switch-svgrepo-com.svg'
+
 function ConvertCard() {
   // put state of 'currency' options here
   // the state is determined by the value of the 'select' elements
@@ -40,13 +43,11 @@ function ConvertCard() {
   return (
     <section className="section">
       <div className="columns is-centered">
-        <div className="column is-three-quarters">
-          <p>convert card</p>
-
+        <div className="column is-three-quarters has-background-light">
           {/* // form with input, two dropdowns, text and convert button */}
           <form className="form" onSubmit={handleSubmit}>
-            <div className="columns">
-              <div className="field column is-one-third">
+            <div className="columns is-vcentered">
+              <div className="field column">
                 <div className="control">
                   <input 
                     className="input" 
@@ -59,7 +60,7 @@ function ConvertCard() {
                   </input>
                 </div>
               </div>
-              <div className="control column">
+              <div className="control column is-flex-grow-0">
                 <div className="select">
                   <select
                     name="original"
@@ -68,7 +69,10 @@ function ConvertCard() {
                   </select>
                 </div>
               </div>
-              <div className="control column">
+              <figure className="image is-32x32">
+                <img src={switchIcon} alt="to" />
+              </figure>
+              <div className="control column is-flex-grow-0">
                 <div className="select">
                   <select
                     name="target"
@@ -78,7 +82,7 @@ function ConvertCard() {
                 </div>
               </div>
             </div>
-            <div className="columns">
+            <div className="columns p-4">
               {
                 finalExchangeRate.original && (
                   <div>
