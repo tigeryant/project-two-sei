@@ -3,6 +3,7 @@ import OptionListByName from '../helperComponents/OptionListByName'
 import { getExchangeRate } from '../lib/utils'
 import { coinTickers } from '../lib/constants'
 
+//TODO change to different icon?? see line 50 too
 // image credit: https://www.svgrepo.com/svg/215706/arrows-switch
 // todo: less cartoonish svg
 import switchIcon from '../assets/arrows-switch-svgrepo-com.svg'
