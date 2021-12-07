@@ -9,9 +9,10 @@ function ConvertCard() {
   // handle change (of select)
   // handle submit
 
-  const [currencyPair, setCurrencyPair] = React.useState({
+  const [inputData, setCurrencyPair] = React.useState({
     original: coinTickers[0].id,
     target: coinTickers[0].id,
+    amountForConversion: 0,
   })
   const [finalExchangeRate, setFinalExchangeRate] = React.useState({
     original: null,
@@ -21,7 +22,7 @@ function ConvertCard() {
 
   const handleChange = (e) => {
     setCurrencyPair({
-      ...currencyPair, [e.target.name]: e.target.value,
+      ...inputData, [e.target.name]: e.target.value,
     })
     // console.log(e.target.name)
     // console.log(e.target)
@@ -31,7 +32,7 @@ function ConvertCard() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setFinalExchangeRate(
-      await getExchangeRate(currencyPair)
+      await getExchangeRate(inputData)
     )
   }
 
@@ -47,7 +48,14 @@ function ConvertCard() {
             <div className="columns">
               <div className="field column is-one-third">
                 <div className="control">
-                  <input className="input" type="number" placeholder="Amount">
+                  <input 
+                    className="input" 
+                    type="number" 
+                    placeholder="Amount"
+                    onChange={handleChange}
+                    name = 'amountForConversion' 
+                    value={inputData.amountForConversion}
+                  >
                   </input>
                 </div>
               </div>
@@ -70,13 +78,17 @@ function ConvertCard() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="columns">
               {
                 finalExchangeRate.original && (
-                  <p>  {'entered value'} {finalExchangeRate.original} = {'entered value' + '*' + 'exchangeRate'} {finalExchangeRate.target}</p>
+                  <div>
+                    <p className="has-text-right"> {`${inputData.amountForConversion} ${finalExchangeRate.original}`}</p>
+                    <p className="has-text-centered">=</p>
+                    <p className="has-text-right">{inputData.amountForConversion * finalExchangeRate.exchangeRate} {finalExchangeRate.target}</p>
+                  </div>
                 )
               }
-              <div className="control">
+              <div className="control has-margin-left-auto">
                 <button className="button is-primary">Convert</button>
               </div>
             </div>
