@@ -2,15 +2,12 @@ import { getCurrencyData } from './api'
 
 // function that gets passed a currency pair object, 
 // gets the exchange rate between each coin and USD
-// calculates final exchange rate
+// calculate final exchange rate
 // returns the two coin tickers and the exchange rate between them
 
-// res.data: Object { base: "BTC", currency: "USD", amount: "51473.44" }
+// res.data.data: Object { base: "BTC", currency: "USD", amount: "51473.44" }
 
-export async function getExchangeRate({ original, target, exchangeRate }) {
-  console.log('getExchangeRate props, original:', original)
-  console.log('getExchangeRate props, target:', target)
-  console.log('getExchangeRate props, exchangeRate:', exchangeRate)
+export async function getExchangeRate({ original, target }) {
   // get conversion to USD for original
   const originalUSDConversion = await getCurrencyData(original).then(
     res => parseFloat(res.data.data.amount)
@@ -20,14 +17,8 @@ export async function getExchangeRate({ original, target, exchangeRate }) {
     res => parseFloat(res.data.data.amount)
   )
 
-  console.log(originalUSDConversion)
-  console.log(targetUSDConversion)
-
-  // work out direct conversion rate
-
-  const finalExchangeRate = targetUSDConversion / originalUSDConversion
-
-  console.log(finalExchangeRate)
+  // calculate direct conversion rate
+  const finalExchangeRate = originalUSDConversion / targetUSDConversion
 
   return (
     {

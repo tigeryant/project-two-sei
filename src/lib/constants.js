@@ -59,7 +59,6 @@ export const coinTickers = [
     },
   },
   // placeholders;
-  { id: 'BNB', name: 'Binance Coin' },
   { id: 'SOL', name: 'Solana' },
   { id: 'ADA', name: 'Cardano' },
   { id: 'XRP', name: 'XRP' },
