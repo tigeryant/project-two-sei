@@ -8,13 +8,11 @@ import { getCurrencyData } from './api'
 // res.data.data: Object { base: "BTC", currency: "USD", amount: "51473.44" }
 
 export async function getExchangeRate({ original, target }) {
-  // get conversion to USD for original
-  const originalUSDConversion = await getCurrencyData(original).then(
-    res => parseFloat(res.data.data.amount)
-  )
-  // get conversion to USD for target
-  const targetUSDConversion = await getCurrencyData(target).then(
-    res => parseFloat(res.data.data.amount)
+  // get conversion to USD for original and target
+  const [originalUSDConversion, targetUSDConversion] = await Promise.all(
+    [original, target].map(ticker => (
+      getCurrencyData(ticker).then(res => parseFloat(res.data.data.amount))
+    ))
   )
 
   // calculate direct conversion rate
