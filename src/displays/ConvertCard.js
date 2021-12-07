@@ -7,10 +7,6 @@ import { coinTickers } from '../lib/constants'
 import switchIcon from '../assets/arrows-switch-svgrepo-com.svg'
 
 function ConvertCard({ inputData, inputChangeFn: handleChange }) {
-  // put state of 'currency' options here
-  // the state is determined by the value of the 'select' elements
-  // handle change (of select)
-  // handle submit
   const [finalExchangeRate, setFinalExchangeRate] = React.useState({
     original: null,
     target: null,
@@ -24,12 +20,10 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
     )
   }
 
-  // console.log(JSON.stringify(finalExchangeRate, null, 2))
   return (
     <section className="section">
       <div className="columns is-centered">
         <div className="column is-three-quarters has-background-light">
-          {/* // form with input, two dropdowns, text and convert button */}
           <form className="form" onSubmit={handleSubmit}>
             <div className="columns is-vcentered">
               <div className="control column">

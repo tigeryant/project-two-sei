@@ -1,13 +1,10 @@
 import React from 'react'
-// import { VictoryLine, VictoryChart, VictoryAxis } from 'victory'
-import { XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, ChartLabel } from 'react-vis'
+import { XYPlot, XAxis, YAxis, LineSeries } from 'react-vis'
 import { getTimeSeriesData } from '../lib/utils'
 
-const numberOfDateTicks = 4
 
 function TimeSeries({ inputData }) {
   const [chartData, setChartData] = React.useState([])
-  const tickValues = []
 
   React.useEffect(() => {
     (async () => {
@@ -17,7 +14,6 @@ function TimeSeries({ inputData }) {
     })()
   }, [inputData])
 
-  // console.log('chartData:', chartData)
   return (
     <section className="section">
       <div className="columns is-centered">
@@ -31,7 +27,6 @@ function TimeSeries({ inputData }) {
                   width={600}
                   height={300}
                 >
-                  {/* <HorizontalGridLines /> */}
                   <LineSeries
                     color="blue"
                     data={chartData.reverse()} />
