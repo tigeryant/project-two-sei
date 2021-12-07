@@ -1,5 +1,6 @@
 import React from 'react'
-import { VictoryLine, VictoryChart, VictoryAxis } from 'victory'
+// import { VictoryLine, VictoryChart, VictoryAxis } from 'victory'
+import { XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries } from 'react-vis'
 import { getTimeSeriesData } from '../lib/utils'
 
 const numberOfDateTicks = 4
@@ -33,7 +34,20 @@ function TimeSeries() {
     <section className="section">
       <div className="columns is-centered">
         <div className="column is-three-quarters has-background-light">
-          <VictoryChart>
+          {chartData.length && (
+            <XYPlot
+              width={600}
+              height={300}
+            >
+              {/* <HorizontalGridLines /> */}
+              <LineSeries
+                color="red"
+                data={chartData.reverse()} />
+              <XAxis title="X" />
+              <YAxis />
+            </XYPlot>
+          )}
+          {/* <VictoryChart>
             <VictoryAxis
               tickValues={tickValues}
               tickFormat={x => ((new Date(x * 1000)).toLocaleDateString())}
@@ -50,7 +64,7 @@ function TimeSeries() {
               }}
               data={chartData}
             />
-          </VictoryChart>
+          </VictoryChart> */}
         </div>
       </div>
     </section>
