@@ -1,4 +1,5 @@
 import { getCurrencyData } from './api'
+// import time series data from api.js here
 
 // function that gets passed a currency pair object, 
 // gets the exchange rate between each coin and USD
@@ -26,3 +27,6 @@ export async function getExchangeRate({ original, target }) {
     }
   )
 }
+
+// insert function for getting time series data here
+// (call function from api.js)
