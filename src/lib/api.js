@@ -10,6 +10,7 @@ export function getCurrencyData(ticker) {
 // add function for retrieving time series data (see the test in client.http)
 
 export function getTimeSeries(ticker, startTime, endTime, granularity = 86400) {
+  console.log(`${baseUrlPro}/products/${ticker}-USD/candles?start-${startTime}&end=${endTime}&granularity=${granularity}`)
   return axios.get(
     `${baseUrlPro}/products/${ticker}-USD/candles?start-${startTime}&end=${endTime}&granularity=${granularity}`
   )
