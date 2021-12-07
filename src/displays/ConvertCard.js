@@ -6,31 +6,16 @@ import { coinTickers } from '../lib/constants'
 // image credit: https://www.svgrepo.com/svg/215706/arrows-switch
 import switchIcon from '../assets/arrows-switch-svgrepo-com.svg'
 
-function ConvertCard() {
+function ConvertCard({ inputData, inputChangeFn: handleChange }) {
   // put state of 'currency' options here
   // the state is determined by the value of the 'select' elements
   // handle change (of select)
   // handle submit
-
-  const [inputData, setCurrencyPair] = React.useState({
-    original: coinTickers[0].id,
-    target: coinTickers[0].id,
-    amountForConversion: 0,
-  })
   const [finalExchangeRate, setFinalExchangeRate] = React.useState({
     original: null,
     target: null,
     exchangeRate: null,
   })
-
-  const handleChange = (e) => {
-    setCurrencyPair({
-      ...inputData, [e.target.name]: e.target.value,
-    })
-    // console.log(e.target.name)
-    // console.log(e.target)
-    console.log(e.target.value)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -47,18 +32,16 @@ function ConvertCard() {
           {/* // form with input, two dropdowns, text and convert button */}
           <form className="form" onSubmit={handleSubmit}>
             <div className="columns is-vcentered">
-              <div className="field column">
-                <div className="control">
-                  <input
-                    className="input"
-                    type="number"
-                    placeholder="Amount"
-                    onChange={handleChange}
-                    name='amountForConversion'
-                    value={inputData.amountForConversion}
-                  >
-                  </input>
-                </div>
+              <div className="control column">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Amount"
+                  onChange={handleChange}
+                  name='amountForConversion'
+                  value={inputData.amountForConversion}
+                >
+                </input>
               </div>
               <div className="control column is-flex-grow-0">
                 <div className="select">
