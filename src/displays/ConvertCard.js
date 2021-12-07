@@ -46,7 +46,7 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
                   </select>
                 </div>
               </div>
-              <figure className="image is-32x32">
+              <figure className="image is-24x24">
                 <img src={switchIcon} alt="to" />
               </figure>
               <div className="control column is-flex-grow-0">
