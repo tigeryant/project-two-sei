@@ -24,7 +24,7 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
     )
   }
 
-  console.log(JSON.stringify(finalExchangeRate, null, 2))
+  // console.log(JSON.stringify(finalExchangeRate, null, 2))
   return (
     <section className="section">
       <div className="columns is-centered">

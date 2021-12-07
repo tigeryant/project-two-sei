@@ -24,9 +24,10 @@ function Convert() {
       <ConvertCard
         inputData={inputData}
         inputChangeFn={handleChange}
-
       />
-      <TimeSeries />
+      <TimeSeries 
+        inputData={inputData}
+      />
     </>
   )
 }
