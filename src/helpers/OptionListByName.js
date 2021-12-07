@@ -1,6 +1,6 @@
 function OptionListByName ({ array }) {
-  return array.map((coin)=>(
-    <option key={coin.id} value={coin.id}>{coin.name}</option>
+  return array.map((member)=>(
+    <option key={member.id} value={member.id}>{member.name}</option>
   ))
 }
 
