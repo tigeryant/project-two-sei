@@ -13,9 +13,6 @@ function Convert() {
     setInputData({
       ...inputData, [e.target.name]: e.target.value,
     })
-    // console.log(e.target.name)
-    // console.log(e.target)
-    console.log(e.target.value)
   }
 
 

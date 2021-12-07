@@ -5,7 +5,7 @@ import { getTimeSeriesData } from '../lib/utils'
 
 const numberOfDateTicks = 4
 
-function TimeSeries({inputData}) {
+function TimeSeries({ inputData }) {
   const [chartData, setChartData] = React.useState([])
   const tickValues = []
 
@@ -15,7 +15,7 @@ function TimeSeries({inputData}) {
         await getTimeSeriesData(inputData)
       )
     })()
-  }, [])
+  }, [inputData])
 
   // console.log('chartData:', chartData)
   return (

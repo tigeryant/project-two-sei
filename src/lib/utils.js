@@ -35,7 +35,6 @@ export async function getExchangeRate({ original, target }) {
 export async function getTimeSeriesData(inputData) {
   // const now = new Date()
   // console.log(now)
-
   const seriesOriginal = await getTimeSeries(inputData.original, '2021-12-01T12:00:00', '2021-12-07T12:00:00')
   // get second currency time series
   const seriesTarget = await getTimeSeries(inputData.target, '2021-12-01T12:00:00', '2021-12-07T12:00:00')
