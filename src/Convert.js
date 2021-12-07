@@ -1,11 +1,11 @@
-import ConvertCard from './ConvertCard'
-import { VictoryLine } from 'victory'
+import TimeSeries from './displays/TimeSeries'
+import ConvertCard from './displays/ConvertCard'
 
 function Convert() {
   return (
     <>
       <ConvertCard />
-      <VictoryLine />
+      <TimeSeries />
     </>
   )
 }

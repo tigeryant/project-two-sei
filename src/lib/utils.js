@@ -1,4 +1,4 @@
-import { getCurrencyData } from './api'
+import { getCurrencyData, getTimeSeries } from './api'
 // import time series data from api.js here
 
 // function that gets passed a currency pair object, 
@@ -30,3 +30,19 @@ export async function getExchangeRate({ original, target }) {
 
 // insert function for getting time series data here
 // (call function from api.js)
+// args: one curency = BTC
+// return : [{x:time},{y:value}]
+export async function getTimeSeriesData() {
+  // const now = new Date()
+  // console.log(now)
+
+  const res = await getTimeSeries('BTC', '2021-11-08T12:00:00', '2021-12-07T12:00:00')
+  return res.data.map(datum =>{
+    return {
+      x: datum[0],
+      y: datum[4],
+    }
+  })
+
+
+}

@@ -1,10 +1,10 @@
 import React from 'react'
-import OptionListByName from './helperComponents/OptionListByName'
-import { getExchangeRate } from './lib/utils'
-import { coinTickers } from './lib/constants'
+import OptionListByName from '../helperComponents/OptionListByName'
+import { getExchangeRate } from '../lib/utils'
+import { coinTickers } from '../lib/constants'
 
 // image credit: https://www.svgrepo.com/svg/215706/arrows-switch
-import switchIcon from './assets/arrows-switch-svgrepo-com.svg'
+import switchIcon from '../assets/arrows-switch-svgrepo-com.svg'
 
 function ConvertCard() {
   // put state of 'currency' options here
@@ -49,12 +49,12 @@ function ConvertCard() {
             <div className="columns is-vcentered">
               <div className="field column">
                 <div className="control">
-                  <input 
-                    className="input" 
-                    type="number" 
+                  <input
+                    className="input"
+                    type="number"
                     placeholder="Amount"
                     onChange={handleChange}
-                    name = 'amountForConversion' 
+                    name='amountForConversion'
                     value={inputData.amountForConversion}
                   >
                   </input>
