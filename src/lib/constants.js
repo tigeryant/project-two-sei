@@ -59,12 +59,12 @@ export const coinTickers = [
     },
   },
   // placeholders;
-  { id: 'bnb', name: 'Binance Coin' },
-  { id: 'sol', name: 'Solana' },
-  { id: 'ada', name: 'Cardano' },
-  { id: 'xrp', name: 'XRP' },
-  { id: 'dot', name: 'Polkadot' },
-  { id: 'wluna', name: 'Terra' },
-  { id: 'doge', name: 'Dogecoin' },
-  { id: 'avax', name: 'Avalanche' }
+  { id: 'BNB', name: 'Binance Coin' },
+  { id: 'SOL', name: 'Solana' },
+  { id: 'ADA', name: 'Cardano' },
+  { id: 'XRP', name: 'XRP' },
+  { id: 'DOT', name: 'Polkadot' },
+  { id: 'WLUNA', name: 'Terra' },
+  { id: 'DOGE', name: 'Dogecoin' },
+  { id: 'AVAX', name: 'Avalanche' }
 ]
