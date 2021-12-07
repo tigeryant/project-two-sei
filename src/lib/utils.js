@@ -36,11 +36,15 @@ export async function getTimeSeriesData() {
   // const now = new Date()
   // console.log(now)
 
-  const res = await getTimeSeries('BTC', '2021-11-08T12:00:00', '2021-12-07T12:00:00')
-  return res.data.map(datum =>{
+  const seriesOriginal = await getTimeSeries('BTC', '2021-11-08T12:00:00', '2021-12-07T12:00:00')
+  // get second currency time series
+  const seriesTarget = await getTimeSeries('ETH', '2021-11-08T12:00:00', '2021-12-07T12:00:00')
+
+  // divide y by target currency vlaue to get exchange rate at that date
+  return seriesOriginal.data.map((datum, index) => {
     return {
       x: datum[0],
-      y: datum[4],
+      y: (datum[4] / seriesTarget.data[index][4]).toPrecision(3),
     }
   })
 
