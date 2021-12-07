@@ -16,13 +16,13 @@ function TimeSeries() {
     })()
   }, [])
 
-  
-  if (chartData.length){
+
+  if (chartData.length) {
     const tickDateAddition = ((
       chartData[chartData.length - 1].x - chartData[0].x) / (numberOfDateTicks)
     )
     const initialDateValue = chartData[0].x
-    for (let i = 0;i < numberOfDateTicks;i++){
+    for (let i = 0; i < numberOfDateTicks; i++) {
       tickValues.push(initialDateValue + (i * tickDateAddition))
     }
   }
@@ -36,11 +36,11 @@ function TimeSeries() {
           <VictoryChart>
             <VictoryAxis
               tickValues={tickValues}
-              tickFormat={x=>((new Date(x * 1000)).toLocaleDateString())}
+              tickFormat={x => ((new Date(x * 1000)).toLocaleDateString())}
             >
             </VictoryAxis>
-            <VictoryAxis
-              dependentAxis
+            <VictoryAxis dependentAxis
+              tickCount={10}
             >
             </VictoryAxis>
             <VictoryLine
