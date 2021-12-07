@@ -82,9 +82,13 @@ function ConvertCard() {
               {
                 finalExchangeRate.original && (
                   <div>
-                    <p className="has-text-right"> {`${inputData.amountForConversion} ${finalExchangeRate.original}`}</p>
+                    <p className="has-text-right"> {`${inputData.amountForConversion} ${finalExchangeRate.original}`}
+                    </p>
                     <p className="has-text-centered">=</p>
-                    <p className="has-text-right">{inputData.amountForConversion * finalExchangeRate.exchangeRate} {finalExchangeRate.target}</p>
+                    <p className="has-text-right">{
+                      (inputData.amountForConversion * finalExchangeRate.exchangeRate).toFixed(10)
+                    } {finalExchangeRate.target}
+                    </p>
                   </div>
                 )
               }
