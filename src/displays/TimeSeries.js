@@ -22,6 +22,7 @@ function TimeSeries({ inputData }) {
             <>
               <h3 className="has-text-centered">{inputData.original} / {inputData.target}</h3>
               <figure className="is-flex is-justify-content-center">
+                {/* //todo: horizontal grid lines */}
                 <XYPlot
                   margin={{ bottom: 75 }}
                   width={600}

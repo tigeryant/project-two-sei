@@ -4,6 +4,7 @@ import { getExchangeRate } from '../lib/utils'
 import { coinTickers } from '../lib/constants'
 
 // image credit: https://www.svgrepo.com/svg/215706/arrows-switch
+// todo: less cartoonish svg
 import switchIcon from '../assets/arrows-switch-svgrepo-com.svg'
 
 function ConvertCard({ inputData, inputChangeFn: handleChange }) {
