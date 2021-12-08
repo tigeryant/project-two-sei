@@ -23,13 +23,14 @@ export async function getExchangeRate({ original, target }) {
 }
 
 export async function getTimeSeriesData(inputData, startDaysAgo = 30) {
-  //todo: make dates dynamic
-  const today = dayjs().format('YYYY-MM-DD')
-  const startDay = dayjs().add(-startDaysAgo, 'day').format('YYYY-MM-DD')
+  const formatString = 'YYYY-MM-DDTHH:mm:ss'
+  const nowDate = dayjs().set('hour', 12).set('minute', 0).set('second', 0)
+  const nowString = nowDate.format(formatString)
+  const startString = nowDate.add(-startDaysAgo, 'day').format(formatString)
 
 
-  const seriesOriginal = await getTimeSeries(inputData.original, `${startDay}T12:00:00`, `${today}T12:00:00`)
-  const seriesTarget = await getTimeSeries(inputData.target, `${startDay}T12:00:00`, `${today}T12:00:00`)
+  const seriesOriginal = await getTimeSeries(inputData.original, startString, nowString)
+  const seriesTarget = await getTimeSeries(inputData.target, startString, nowString)
 
   return seriesOriginal.data.map((datum, index) => {
     let yValue = 0
