@@ -22,7 +22,7 @@ function TimeSeries({ inputData }) {
   }, [inputData])
 
   let graphConvertAmount = null
-  if (inputData.amountForConversion && inputData.amountForConversion != 1){
+  if (inputData.amountForConversion && inputData.amountForConversion !== 1){
     graphConvertAmount = inputData.amountForConversion
   }
 

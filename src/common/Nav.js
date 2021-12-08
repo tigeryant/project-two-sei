@@ -11,6 +11,7 @@ function Nav() {
           <Link to="/convert" className="navbar-item">
             Convert
           </Link>
+          
         </div>
       </div>
     </nav>
