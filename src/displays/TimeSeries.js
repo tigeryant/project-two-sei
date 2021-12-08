@@ -20,12 +20,18 @@ function TimeSeries({ inputData }) {
       }
     })()
   }, [inputData])
+
+  let graphConvertAmount = null
+  if (inputData.amountForConversion && inputData.amountForConversion != 1){
+    graphConvertAmount = inputData.amountForConversion
+  }
+
   return (
 
     <section className="section">
       <div className="columns is-centered">
         <div className="column is-three-quarters has-background-light">
-          <h3 className="has-text-centered">{inputData.original} / {inputData.target}</h3>
+          <h3 className="has-text-centered">{graphConvertAmount} {inputData.original} / {inputData.target}</h3>
           {isError ? 
             <Error errorDetailString="One of the currencies you have selected does not have time-series data."/> : (
               chartData.length && (

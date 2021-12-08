@@ -35,11 +35,17 @@ export async function getTimeSeriesData(inputData, startDaysAgo = 30) {
   let maxValue = -Infinity
   let minValue = Infinity
 
+  let valueMultiplier = inputData.amountForConversion
+
+  if (!valueMultiplier){
+    valueMultiplier = 1
+  }
+
   const returnArray = seriesOriginal.data.map((datum, index) => {
     let yValue = 0
 
     if (seriesTarget.data[index]) {
-      yValue = (parseFloat(datum[4]) / parseFloat(seriesTarget.data[index][4]).toPrecision(4))
+      yValue = (((parseFloat(datum[4]) / parseFloat(seriesTarget.data[index][4])) * valueMultiplier).toPrecision(4))
     }
     if (yValue > maxValue) {
       maxValue = yValue
