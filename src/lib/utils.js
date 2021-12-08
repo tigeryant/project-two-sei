@@ -26,11 +26,11 @@ export async function getTimeSeriesData(inputData, startDaysAgo = 30) {
   const formatString = 'YYYY-MM-DDTHH:mm:ss'
   const nowDate = dayjs().set('hour', 12).set('minute', 0).set('second', 0)
   const nowString = nowDate.format(formatString)
-  const startString = nowDate.add(-startDaysAgo, 'day').format(formatString)
+  const startDateString = nowDate.add(-startDaysAgo, 'day').format(formatString)
 
 
-  const seriesOriginal = await getTimeSeries(inputData.original, startString, nowString)
-  const seriesTarget = await getTimeSeries(inputData.target, startString, nowString)
+  const seriesOriginal = await getTimeSeries(inputData.original, startDateString, nowString)
+  const seriesTarget = await getTimeSeries(inputData.target, startDateString, nowString)
 
   return seriesOriginal.data.map((datum, index) => {
     let yValue = 0
