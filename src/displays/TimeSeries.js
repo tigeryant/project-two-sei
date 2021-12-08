@@ -36,7 +36,7 @@ function TimeSeries({ inputData }) {
           <h3 className="has-text-centered">{graphConvertAmount} {inputData.original} / {inputData.target}</h3>
           {isError && <Error errorDetailString="One of the currencies you have selected does not have time-series data."/>}
           {isLoading && <Loading />}
-          {!!chartData.length && (
+          {!isError && !!chartData.length && (
             <>
               <figure className="is-flex is-justify-content-center">
                 {/* //todo: horizontal grid lines */}
