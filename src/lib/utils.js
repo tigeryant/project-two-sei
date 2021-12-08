@@ -27,9 +27,15 @@ export async function getTimeSeriesData(inputData) {
   const seriesTarget = await getTimeSeries(inputData.target, '2021-12-01T12:00:00', '2021-12-07T12:00:00')
 
   return seriesOriginal.data.map((datum, index) => {
+    let yValue = 0
+
+    if (seriesTarget.data[index]) {
+      yValue = (datum[4] / seriesTarget.data[index][4]).toPrecision(4)
+    }
+
     return {
       x: datum[0],
-      y: (datum[4] / seriesTarget.data[index][4]).toPrecision(3),
+      y: yValue,
     }
   })
 
