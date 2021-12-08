@@ -58,12 +58,36 @@ export const coinTickers = [
       max_withdrawal_amount: 7450,
     },
   },
+  {
+    id: 'DOGE',
+    name: 'Dogecoin',
+    min_size: '1',
+    status: 'online',
+    message: '',
+    max_precision: '0.1',
+    convertible_to: [],
+    details: {
+      type: 'crypto',
+      symbol: null,
+      network_confirmations: 60,
+      sort_order: 29,
+      crypto_address_link: 'https://dogechain.info/address/{{address}}',
+      crypto_transaction_link: null,
+      push_payment_methods: [
+        'crypto'
+      ],
+      group_types: [],
+      display_name: null,
+      processing_time_seconds: null,
+      min_withdrawal_amount: 1,
+      max_withdrawal_amount: 17391300,
+    },
+  },
   // placeholders;
   { id: 'SOL', name: 'Solana' },
   { id: 'ADA', name: 'Cardano' },
   { id: 'XRP', name: 'XRP' },
   { id: 'DOT', name: 'Polkadot' },
-  { id: 'WLUNA', name: 'Terra' },
-  { id: 'DOGE', name: 'Dogecoin' },
+  { id: 'WLUNA', name: 'Wrapped Luna' },
   { id: 'AVAX', name: 'Avalanche' }
 ]
