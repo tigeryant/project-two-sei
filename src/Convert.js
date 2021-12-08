@@ -9,7 +9,7 @@ function Convert() {
     target: coinTickers[0].id,
     amountForConversion: 0,
   })
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     setInputData({
       ...inputData, [e.target.name]: e.target.value,
     })
@@ -20,7 +20,7 @@ function Convert() {
     <>
       <ConvertCard
         inputData={inputData}
-        inputChangeFn={handleChange}
+        inputChangeFn={handleInputChange}
       />
       <TimeSeries 
         inputData={inputData}
