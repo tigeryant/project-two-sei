@@ -32,7 +32,7 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
       <div className="columns is-centered">
         <div className="column is-three-quarters has-background-light">
           <form className="form" onSubmit={handleSubmit}>
-            <div className="columns is-vcentered">
+            <div className="columns is-vcentered is-mobile is-flex-direction-column-mobile">
               <div className="control column">
                 <input
                   className="input"
@@ -69,9 +69,9 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
             {
               isError && <Error />
             }
-            <div className="columns p-4">
+            <div className="columns p-4 is-mobile is-flex-direction-column-mobile">
               {
-                finalExchangeRate.original && (
+                finalExchangeRate.original && !isError && (
                   <div className="box">
                     <p className="has-text-right"> {`${inputData.amountForConversion} ${finalExchangeRate.original}`}
                     </p>

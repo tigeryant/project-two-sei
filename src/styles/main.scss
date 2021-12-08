@@ -1,6 +1,11 @@
 .has-margin-left-auto{
   margin-left: auto;
 }
+@media (max-width:768px) {
+.is-flex-direction-column-mobile{
+  flex-direction: column;
+}
+}
 
 // $success: #4efc8b;
 $success: #6afc9d;
