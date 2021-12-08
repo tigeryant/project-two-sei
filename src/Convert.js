@@ -17,12 +17,13 @@ function Convert() {
 
 
   return (
+    // <section className="hero is-fullheight-with-navbar has-background-success">
     <>
       <ConvertCard
         inputData={inputData}
         inputChangeFn={handleInputChange}
       />
-      <TimeSeries 
+      <TimeSeries
         inputData={inputData}
       />
     </>

@@ -1,6 +1,9 @@
-@import '~bulma/bulma.sass';
-@import "~react-vis/dist/style";
-
 .has-margin-left-auto{
   margin-left: auto;
 }
+
+// $success: #4efc8b;
+$success: #6afc9d;
+
+@import '~bulma/bulma.sass';
+@import "~react-vis/dist/style";
