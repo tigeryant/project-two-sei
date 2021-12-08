@@ -62,7 +62,7 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
             <div className="columns p-4">
               {
                 finalExchangeRate.original && (
-                  <div>
+                  <div className="box">
                     <p className="has-text-right"> {`${inputData.amountForConversion} ${finalExchangeRate.original}`}
                     </p>
                     <p className="has-text-centered">=</p>
