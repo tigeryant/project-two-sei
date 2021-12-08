@@ -9,7 +9,8 @@ function TimeSeries({ inputData }) {
   const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
-    (async () => {
+    setIsError(false)
+    ;(async () => {
       try {
         setChartData(
           await getTimeSeriesData(inputData)
