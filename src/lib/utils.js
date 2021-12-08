@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { getCurrencyData, getTimeSeries } from './api'
 
 export async function getExchangeRate({ original, target }) {
@@ -21,10 +22,14 @@ export async function getExchangeRate({ original, target }) {
   )
 }
 
-export async function getTimeSeriesData(inputData) {
+export async function getTimeSeriesData(inputData, startDaysAgo = 30) {
   //todo: make dates dynamic
-  const seriesOriginal = await getTimeSeries(inputData.original, '2021-12-01T12:00:00', '2021-12-07T12:00:00')
-  const seriesTarget = await getTimeSeries(inputData.target, '2021-12-01T12:00:00', '2021-12-07T12:00:00')
+  const today = dayjs().format('YYYY-MM-DD')
+  const startDay = dayjs().add(-startDaysAgo, 'day').format('YYYY-MM-DD')
+
+
+  const seriesOriginal = await getTimeSeries(inputData.original, `${startDay}T12:00:00`, `${today}T12:00:00`)
+  const seriesTarget = await getTimeSeries(inputData.target, `${startDay}T12:00:00`, `${today}T12:00:00`)
 
   return seriesOriginal.data.map((datum, index) => {
     let yValue = 0
