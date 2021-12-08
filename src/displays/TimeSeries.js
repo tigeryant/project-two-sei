@@ -13,7 +13,6 @@ function TimeSeries({ inputData }) {
       )
     })()
   }, [inputData])
-
   return (
     <section className="section">
       <div className="columns is-centered">
@@ -24,7 +23,8 @@ function TimeSeries({ inputData }) {
               <figure className="is-flex is-justify-content-center">
                 {/* //todo: horizontal grid lines */}
                 <XYPlot
-                  margin={{ bottom: 75 }}
+                  yDomain={[chartData.minValue * 0.85, chartData.maxValue * 1.25]}
+                  margin={{ bottom: 75, left: 75 }}
                   width={600}
                   height={300}
                 >
@@ -34,9 +34,10 @@ function TimeSeries({ inputData }) {
                   <XAxis
 
                     tickFormat={x => ((new Date(x * 1000)).toLocaleDateString())}
-                    tickLabelAngle={-90}
+                    tickLabelAngle={-60}
                   />
-                  <YAxis />
+                  <YAxis
+                  />
                 </XYPlot>
               </figure>
             </>

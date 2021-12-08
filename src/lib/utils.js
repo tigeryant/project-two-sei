@@ -32,18 +32,29 @@ export async function getTimeSeriesData(inputData, startDaysAgo = 30) {
   const seriesOriginal = await getTimeSeries(inputData.original, startDateString, nowString)
   const seriesTarget = await getTimeSeries(inputData.target, startDateString, nowString)
 
-  return seriesOriginal.data.map((datum, index) => {
+  let maxValue = -Infinity
+  let minValue = Infinity
+
+  const returnArray = seriesOriginal.data.map((datum, index) => {
     let yValue = 0
 
     if (seriesTarget.data[index]) {
-      yValue = (datum[4] / seriesTarget.data[index][4]).toPrecision(4)
+      yValue = (parseFloat(datum[4]) / parseFloat(seriesTarget.data[index][4]).toPrecision(4))
     }
-
+    if (yValue > maxValue) {
+      maxValue = yValue
+    }
+    if (yValue < minValue) {
+      minValue = yValue
+    }
     return {
       x: datum[0],
       y: yValue,
     }
   })
 
+  returnArray.maxValue = maxValue
+  returnArray.minValue = minValue
+  return returnArray
 
 }
