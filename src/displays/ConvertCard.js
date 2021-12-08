@@ -5,6 +5,7 @@ import { coinTickers } from '../lib/constants'
 
 // image credit: https://fontawesome.com/v5.15/icons/exchange-alt?style=solid
 import switchIcon from '../assets/exchange-alt-solid.svg'
+import Error from '../common/Error'
 
 function ConvertCard({ inputData, inputChangeFn: handleChange }) {
   const [finalExchangeRate, setFinalExchangeRate] = React.useState({
@@ -12,12 +13,18 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
     target: null,
     exchangeRate: null,
   })
+  const [isError, setIsError] = React.useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setFinalExchangeRate(
-      await getExchangeRate(inputData)
-    )
+    setIsError(false)
+    try {
+      setFinalExchangeRate(
+        await getExchangeRate(inputData)
+      )
+    } catch (err) {
+      setIsError(true)
+    }
   }
 
   return (
@@ -59,6 +66,9 @@ function ConvertCard({ inputData, inputChangeFn: handleChange }) {
                 </div>
               </div>
             </div>
+            {
+              isError && <Error />
+            }
             <div className="columns p-4">
               {
                 finalExchangeRate.original && (
