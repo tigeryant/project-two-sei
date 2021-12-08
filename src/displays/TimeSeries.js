@@ -18,6 +18,7 @@ function TimeSeries({ inputData }) {
           await getTimeSeriesData(inputData)
         )
       } catch (err) {
+        setChartData([])
         setIsError(true)
       }
     })()
