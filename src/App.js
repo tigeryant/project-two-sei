@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Convert from './Convert'
 import Nav from './common/Nav'
 import Home from './common/Home'
+import CoinDetail from './displays/CoinDetail'
 
 function App() {
 
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/convert/:ticker">
+          <CoinDetail />
         </Route>
         <Route path="/convert">
           <Convert />
