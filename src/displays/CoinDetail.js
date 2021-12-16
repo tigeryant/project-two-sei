@@ -8,7 +8,6 @@ function CoinDetail(){
     target: ticker,
     amountForConversion: 1,
   }
-  console.log(useParams())
   const comparison1 = { ...inputData, target: 'BTC' }
   const comparison2 = { ...inputData, target: 'ETH' }
   const comparison3 = { ...inputData, target: 'DOGE' }
