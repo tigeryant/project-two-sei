@@ -9,6 +9,7 @@ function TimeSeries({ inputData }) {
   const [chartData, setChartData] = React.useState([])
   const [isError, setIsError] = React.useState(false)
   const isLoading = !isError && !chartData.length
+  const graphContainerRef = React.useRef(null)
 
   React.useEffect(() => {
     setIsError(false)
@@ -29,12 +30,21 @@ function TimeSeries({ inputData }) {
     graphConvertAmount = inputData.amountForConversion
   }
 
+  React.useEffect(() => {
+    function handleResize() {
+      console.log(graphContainerRef)
+      console.log('width', graphContainerRef.current ? graphContainerRef.current.offsetWidth : 0)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+  },[graphContainerRef])
+
   return (
 
     <section className="section">
       <div className="columns is-centered">
         <div className="column is-three-quarters has-background-light">
-          <h3 className="has-text-centered">{graphConvertAmount} {inputData.original} / {inputData.target}</h3>
+          <h3 ref={graphContainerRef} className="has-text-centered">{graphConvertAmount} {inputData.original} / {inputData.target}</h3>
           {isError && <Error errorDetailString="One of the currencies you have selected does not have time-series data."/>}
           {isLoading && <Loading />}
           {!isError && !!chartData.length && (
