@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 I and one other student completed this pair programming project as part of the General Assembly Software Engineering Immersive course. The course was split into four modules, and this was our submission for module two. During module two, we were introduced to our first front end framework: React. The finished project was deployed with Netlify, and can be found [here](https://compcoin.netlify.app/).
 
 ## Aim
