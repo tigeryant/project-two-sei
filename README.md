@@ -1,20 +1,35 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
+# Introduction
+I and one other student completed this pair programming project as part of the General Assembly Software Engineering Immersive course. The course was split into four modules, and this was our submission for module two. During module two, we were introduced to our first front end framework: React. The finished project was deployed with Netlify, and can be found [here](https://compcoin.netlify.app/).
 
-## Using NPM
+## Aim
+We were given two days to to build a React application that consumes a public API and has several components. Me and my partner chose to use the Coinbase API to obtain cryptocurrency price data. The web app we created uses this data to calculate the exchange rate between trading pairs and display time series data to the user.
 
-`npm run start` or `npm run dev`  to run the development server
+## Challenges
+One of our biggest challenges was finding the right charting library to display the time series data. Originally we tried to use a library called ‘VictoryChart’. However, after several complications we made the decision to change to ‘React-Vis’. Apart from being a more pleasant library to work with, React-Vis has more modern-looking styling, so we were glad to have made this decision in the end.
 
-`npm run build` to create a build directory
+## Operation
+The app has three tabs: a landing page, a ‘Convert’ page and a ‘Detail’ page. 
 
-## Using Yarn
+### Convert
+The Convert page allows users to enter an amount and choose the trading pair they want to convert between from two dropdown lists. When the user clicks the ‘Convert’ button, two GET requests are made to the API which return the current price for each of the currencies. One is divided by the other and the result is displayed to the user. Underneath is a chart which displays their exchange rate over time.
 
-`yarn start` or `yarn dev`  to run the development server
+<p align="center">
+  <img src="https://i.imgur.com/VP9er1z.png" height="450px">
+  </p>
 
-`yarn build` to create a build directory
+### Detail
+A dropdown list on the navbar presents the users with a list of cryptocurrencies. Once the user selects one, GET requests are made to the API and the Detail page displays three time series charts - each displays the exchange rate of the selected currency against Bitcoin, Ethereum and Dogecoin respectively.
 
-### ⚠️
+<p align="center">
+  <img src="https://i.imgur.com/Kz2fLir.png" height="450px">
+  </p>
 
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
+## Technology and key take-aways
+### React
+This project taught me a great deal about React in particular. I learnt how to use hooks, how the component hierarchy works, how state is used and how props are passed and how the virtual DOM is used to render elements.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Git
+Seeing as this was my first collaborative project, I improved my ability to work with Git for version control. 
 
+### Others
+I also became more proficient in several other pieces of technology - Bulma (CSS framework), React-Vis (JavaScript charting library) and Axios (for making API calls).
